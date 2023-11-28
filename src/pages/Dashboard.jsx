@@ -4,12 +4,7 @@ import Sidebar from "../components/Sidebar";
 function Dashboard() {
   return (
     <div className="Dashboard">
-      <div
-        className="navbar"
-        style={{ backgroundColor: "orange", width: "100vw", height: "100vh" }}
-      >
-        <Sidebar />
-      </div>
+      <div className="navbar"></div>
     </div>
   );
 }

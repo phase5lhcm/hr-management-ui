@@ -15,13 +15,16 @@ import {
   faPen,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 
 function Sidebar() {
+  const navigate = useNavigate();
   return (
     <>
       <SideNav
         onSelect={(selected) => {
-          console.log(`This page is selected ${selected}`);
+          navigate(`/${selected}`);
+          console.log(`/${selected}`);
         }}
         className="sideNav"
       >
@@ -36,7 +39,7 @@ function Sidebar() {
             </NavIcon>
             <NavText>Dashboard</NavText>
           </NavItem>
-          <NavItem eventKey="applicant tracker">
+          <NavItem eventKey="applications">
             <NavIcon>
               <FontAwesomeIcon
                 icon={faChartLine}
@@ -45,7 +48,7 @@ function Sidebar() {
             </NavIcon>
             <NavText>Applicant Tracker</NavText>
           </NavItem>
-          <NavItem eventKey="employee profiles">
+          <NavItem eventKey="employee-profiles">
             <NavIcon>
               <FontAwesomeIcon icon={faPerson} style={{ fontSize: "1.5em" }} />
             </NavIcon>
