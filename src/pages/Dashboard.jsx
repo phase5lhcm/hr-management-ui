@@ -9,12 +9,46 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faBell } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faBell, faX } from "@fortawesome/free-solid-svg-icons";
 
 /* TODO - add a nav item to center of navbar & add menu item to dropdown arrow to allow user to login/logout
 & add onHover feature to bell for that says "Notifications"
 */
 function Dashboard() {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const daysOfWeek = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  const currentDate = new Date();
+
+  const dayOfWeekIndex = currentDate.getDay();
+  const dayOfWeek = daysOfWeek[dayOfWeekIndex];
+  const day = currentDate.getDate();
+  const monthIndex = currentDate.getMonth();
+  const year = currentDate.getFullYear();
+
+  const today = `${dayOfWeek}, ${months[monthIndex]} ${day} ${year}`;
+
   return (
     <Container fluid style={{ paddingLeft: "4rem" }}>
       <Navbar className="bg-body-tertiary">
@@ -85,11 +119,35 @@ function Dashboard() {
         </Col>
 
         <Col>
-          <div
-            className="listGroup"
-            style={{ border: "1mm ridge grey", padding: "1em" }}
+          <Card
+            style={{
+              width: "22rem",
+              border: "1mm ridge grey",
+              padding: "1.5em",
+            }}
           >
-            <h2>Announcements</h2>
+            <Row className="justify-content-even">
+              <Col>
+                <h6>Announcements</h6>
+              </Col>
+              <Col>
+                <span
+                  style={{
+                    textAlign: "center",
+                    display: "block",
+                    fontSize: ".6em",
+                    padding: ".1em",
+                    backgroundColor: "lightgray",
+                    boxShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+                    // boxShadow: "10x 10px 10px	rgb(105,105,105)",
+                    // borderRadius: "30px",
+                  }}
+                >
+                  {" "}
+                  {today}
+                </span>
+              </Col>
+            </Row>
             <ListGroup as="ol" numbered>
               <ListGroup.Item
                 as="li"
@@ -100,7 +158,7 @@ function Dashboard() {
                   Cras justo odio
                 </div>
                 <Badge bg="primary" pill>
-                  14
+                  <FontAwesomeIcon icon={faX} beat />
                 </Badge>
               </ListGroup.Item>
               <ListGroup.Item
@@ -112,7 +170,7 @@ function Dashboard() {
                   Cras justo odio
                 </div>
                 <Badge bg="primary" pill>
-                  14
+                  <FontAwesomeIcon icon={faX} beat />
                 </Badge>
               </ListGroup.Item>
               <ListGroup.Item
@@ -124,7 +182,7 @@ function Dashboard() {
                   Cras justo odio
                 </div>
                 <Badge bg="primary" pill>
-                  14
+                  <FontAwesomeIcon icon={faX} beat />
                 </Badge>
               </ListGroup.Item>
               <ListGroup.Item
@@ -136,7 +194,7 @@ function Dashboard() {
                   Cras justo odio
                 </div>
                 <Badge bg="primary" pill>
-                  14
+                  <FontAwesomeIcon icon={faX} beat />
                 </Badge>
               </ListGroup.Item>
               <ListGroup.Item
@@ -148,11 +206,11 @@ function Dashboard() {
                   Cras justo odio
                 </div>
                 <Badge bg="primary" pill>
-                  14
+                  <FontAwesomeIcon icon={faX} beat />
                 </Badge>
               </ListGroup.Item>
             </ListGroup>
-          </div>
+          </Card>
         </Col>
       </Row>
     </Container>
