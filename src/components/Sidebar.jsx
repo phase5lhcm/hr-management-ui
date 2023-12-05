@@ -1,73 +1,75 @@
-import React from "react";
-import SideNav, {
-  Toggle,
-  Nav,
-  NavItem,
-  NavIcon,
-  NavText,
-} from "@trendmicro/react-sidenav";
-import "@trendmicro/react-sidenav/dist/react-sidenav.css";
+import { useState } from "react";
+import Offcanvas from "react-bootstrap/Offcanvas";
+import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTableColumns,
+  faBars,
+  faBell,
+  faAngleDown,
   faPerson,
-  faChartLine,
-  faPen,
-  faGear,
 } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router";
+import Navbar from "react-bootstrap/Navbar";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function Sidebar() {
-  const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <>
-      <SideNav
-        onSelect={(selected) => {
-          navigate(`/${selected}`);
-          console.log(`/${selected}`);
-        }}
-        className="sideNav"
-      >
-        <SideNav.Toggle />
-        <SideNav.Nav defaultSelected="dashboard">
-          <NavItem eventKey="dashboard">
-            <NavIcon>
-              <FontAwesomeIcon
-                icon={faTableColumns}
-                style={{ fontSize: "1.5em" }}
+      <Navbar className="bg-body-tertiary">
+        <Col sm={2} style={{ paddingLeft: "3rem", fontSize: "2.5em" }}>
+          <FontAwesomeIcon icon={faBars} onClick={handleShow} />
+        </Col>
+        <Form inline="true">
+          <Row>
+            <Col xs="auto">
+              <Form.Control
+                id="serachField"
+                type="text"
+                placeholder="Search"
+                className=" mr-sm-2"
               />
-            </NavIcon>
-            <NavText>Dashboard</NavText>
-          </NavItem>
-          <NavItem eventKey="applications">
-            <NavIcon>
-              <FontAwesomeIcon
-                icon={faChartLine}
-                style={{ fontSize: "1.5em" }}
-              />
-            </NavIcon>
-            <NavText>Applicant Tracker</NavText>
-          </NavItem>
-          <NavItem eventKey="employee-profiles">
-            <NavIcon>
-              <FontAwesomeIcon icon={faPerson} style={{ fontSize: "1.5em" }} />
-            </NavIcon>
-            <NavText>Employees</NavText>
-          </NavItem>
-          <NavItem eventKey="communications">
-            <NavIcon>
-              <FontAwesomeIcon icon={faPen} style={{ fontSize: "1.5em" }} />
-            </NavIcon>
-            <NavText>Communications</NavText>
-          </NavItem>
-          <NavItem eventKey="settings">
-            <NavIcon>
-              <FontAwesomeIcon icon={faGear} style={{ fontSize: "1.5em" }} />
-            </NavIcon>
-            <NavText>Settings</NavText>
-          </NavItem>
-        </SideNav.Nav>
-      </SideNav>
+            </Col>
+            <Col xs="auto">
+              <Button type="submit">Submit</Button>
+            </Col>
+          </Row>
+        </Form>
+        <Navbar.Collapse
+          className="justify-content-end"
+          style={{ paddingRight: "1rem" }}
+        >
+          <Navbar.Text style={{ paddingRight: "1rem" }}>
+            <FontAwesomeIcon icon={faBell} />
+          </Navbar.Text>
+          <Navbar.Text className="justify-content-between">
+            <span>
+              Hello Mark Otto <FontAwesomeIcon icon={faAngleDown} />
+            </span>
+          </Navbar.Text>
+        </Navbar.Collapse>
+      </Navbar>
+
+      <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav defaultActiveKey="/home" className="flex-column">
+            <Nav.Link href="/home">Active</Nav.Link>
+            <Nav.Link eventKey="link-1">Link</Nav.Link>
+            <Nav.Link eventKey="link-2">Link</Nav.Link>
+            <Nav.Link eventKey="disabled" disabled>
+              Disabled
+            </Nav.Link>
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
     </>
   );
 }

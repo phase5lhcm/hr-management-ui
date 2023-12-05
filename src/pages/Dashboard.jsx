@@ -1,6 +1,3 @@
-import Navbar from "react-bootstrap/Navbar";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
@@ -51,38 +48,6 @@ function Dashboard() {
 
   return (
     <Container fluid>
-      <Navbar className="bg-body-tertiary">
-        <Col sm={2}></Col>
-        <Form inline="true">
-          <Row>
-            <Col></Col>
-            <Col xs="auto">
-              <Form.Control
-                id="serachField"
-                type="text"
-                placeholder="Search"
-                className=" mr-sm-2"
-              />
-            </Col>
-            <Col xs="auto">
-              <Button type="submit">Submit</Button>
-            </Col>
-          </Row>
-        </Form>
-        <Navbar.Collapse
-          className="justify-content-end"
-          style={{ paddingRight: "1rem" }}
-        >
-          <Navbar.Text style={{ paddingRight: "1rem" }}>
-            <FontAwesomeIcon icon={faBell} />
-          </Navbar.Text>
-          <Navbar.Text className="justify-content-between">
-            <span>
-              Hello Mark Otto <FontAwesomeIcon icon={faAngleDown} />
-            </span>
-          </Navbar.Text>
-        </Navbar.Collapse>
-      </Navbar>
       <Row
         className="justify-content-center"
         style={{ paddingBottom: "1rem", paddingTop: "1rem" }}
