@@ -8,6 +8,9 @@ import {
   faAngleDown,
   faPerson,
   faHouse,
+  faArrowsSpin,
+  faEnvelopeOpenText,
+  faGears,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
@@ -15,12 +18,19 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Home
+    </Tooltip>
+  );
   return (
     <>
       <Navbar className="bg-body-tertiary">
@@ -57,69 +67,93 @@ function Sidebar() {
         </Navbar.Collapse>
       </Navbar>
       =
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "17rem" }}>
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header>
+      <Offcanvas show={show} onHide={handleClose} style={{ width: "8rem" }}>
         <Offcanvas.Body>
           <Container>
             <Row>
-              <Col md={10}>
+              <Col>
                 <Nav
                   defaultActiveKey="/dashboard"
-                  className="flex-column"
+                  className="flex-column justify-content-center align-content-center"
                   style={{}}
                 >
-                  <Nav.Link
-                    href="/dashboard"
+                  <Button
                     style={{
+                      width: "7.5rem",
                       display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-evenly",
-                      alignContent: "center",
+                      flexDirection: "column",
+                      alignItems: "center",
                     }}
                   >
                     <FontAwesomeIcon
                       icon={faHouse}
-                      style={{
-                        fontSize: "2em",
-                      }}
+                      style={{ fontSize: "2em" }}
                     />
-                    <span>
-                      <p
-                        style={{
-                          fontSize: "1.5em",
-                          paddingTop: ".3rem",
-                        }}
-                      >
-                        Dashboard
-                      </p>
-                    </span>
-                  </Nav.Link>
-                  <Nav.Link
-                    eventKey="link-1"
-                    href="applications"
+                    <span className="ms-1">Home</span>
+                  </Button>
+                </Nav>
+
+                <Nav
+                  defaultActiveKey="/applications"
+                  className="flex-column justify-content-center align-content-center"
+                >
+                  <Button style={{ marginTop: "1.5rem" }}>
+                    <FontAwesomeIcon
+                      icon={faArrowsSpin}
+                      style={{ fontSize: "2em" }}
+                    />
+                    <span className="ms-1">Applications</span>
+                  </Button>
+                </Nav>
+
+                <Nav
+                  defaultActiveKey="/employee-profiles"
+                  className="flex-column justify-content-center align-content-center"
+                >
+                  <Button style={{ marginTop: "1.5rem", width: "7.5rem" }}>
+                    <FontAwesomeIcon
+                      icon={faPerson}
+                      style={{ fontSize: "2em" }}
+                    />
+                    <span>Employees</span>
+                  </Button>
+                </Nav>
+                <Nav
+                  defaultActiveKey="/communications"
+                  className="flex-column justify-content-center align-content-center"
+                >
+                  <Button
                     style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-evenly",
-                      alignContent: "center",
+                      marginTop: "1.5rem",
+                      width: "7.5rem",
+                      alignItems: "center",
                     }}
                   >
                     <FontAwesomeIcon
-                      icon={faPerson}
+                      icon={faEnvelopeOpenText}
                       style={{
                         fontSize: "2em",
                       }}
                     />
-                    <span>
-                      <p style={{}}>Applicant Tracker</p>
-                    </span>
-                  </Nav.Link>
-                  <Nav.Link eventKey="link-2">Link</Nav.Link>
-                  <Nav.Link eventKey="disabled" disabled>
-                    Disabled
-                  </Nav.Link>
+                    <span>Messages</span>
+                  </Button>
+                </Nav>
+                <Nav
+                  defaultActiveKey="/settings"
+                  className="flex-column justify-content-center align-content-center"
+                >
+                  <Button
+                    style={{
+                      marginTop: "1.5rem",
+                      width: "7.5rem",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faGears}
+                      style={{ fontSize: "2em" }}
+                    />
+                    <span>Settings</span>
+                  </Button>
                 </Nav>
               </Col>
             </Row>
