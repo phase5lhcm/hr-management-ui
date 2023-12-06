@@ -18,19 +18,13 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const renderTooltip = (props) => (
-    <Tooltip id="button-tooltip" {...props}>
-      Home
-    </Tooltip>
-  );
+
   return (
     <>
       <Navbar className="bg-body-tertiary">

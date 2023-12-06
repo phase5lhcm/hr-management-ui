@@ -5,8 +5,8 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faBell, faX } from "@fortawesome/free-solid-svg-icons";
-import TotalEmployeeCount from "../components/EmployeesByDeptVictoryBar";
+import { faX } from "@fortawesome/free-solid-svg-icons";
+import EmployeesByDeptBarChart from "../components/EmployeesByDeptBarChart";
 
 /* TODO - add a nav item to center of navbar & add menu item to dropdown arrow to allow user to login/logout
 & add onHover feature to bell for that says "Notifications"
@@ -88,10 +88,7 @@ function Dashboard() {
             </Col>
             <Row>
               <Col>
-                <div style={{ height: "16rem" }}>
-                  {" "}
-                  <TotalEmployeeCount />
-                </div>
+                <EmployeesByDeptBarChart />
               </Col>
             </Row>
           </Row>
