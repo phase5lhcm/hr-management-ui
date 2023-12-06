@@ -29,7 +29,11 @@ function Sidebar() {
     <>
       <Navbar className="bg-body-tertiary">
         <Col sm={2} style={{ paddingLeft: "3rem", fontSize: "1em" }}>
-          <FontAwesomeIcon icon={faBars} onClick={handleShow} />
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={handleShow}
+            style={{ color: "#616E9A" }}
+          />
         </Col>
         <Form inline="true">
           <Row>
@@ -51,10 +55,10 @@ function Sidebar() {
           style={{ paddingRight: "1rem" }}
         >
           <Navbar.Text style={{ paddingRight: "1rem" }}>
-            <FontAwesomeIcon icon={faBell} />
+            <FontAwesomeIcon icon={faBell} style={{ color: "#616E9A" }} />
           </Navbar.Text>
           <Navbar.Text className="justify-content-between">
-            <span>
+            <span style={{ color: "#032A49" }}>
               Hello Mark Otto <FontAwesomeIcon icon={faAngleDown} />
             </span>
           </Navbar.Text>

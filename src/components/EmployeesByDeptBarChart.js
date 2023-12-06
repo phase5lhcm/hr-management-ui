@@ -24,17 +24,34 @@ const EmployeesByDeptBarChart = () => {
       {
         label: "Total Employees by Department",
         data: [1933, 2000, 250, 358, 3670],
-        backgroundColor: "aqua",
+        backgroundColor: "blue",
         borderColor: "black",
         borderWidth: 1,
       },
     ],
   };
 
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          color: "#032A49", // Change dataset label color
+        },
+      },
+    },
+  };
+
   return (
-    <div style={{ height: "16rem" }}>
+    <div
+      style={{
+        height: "16rem",
+        boxShadow:
+          " 5px 0px 25px -5px rgba(0, 0, 0, 0.3), -5px 0px 25px -5px rgba(0, 0, 0, 0.3)",
+        borderRadius: "8px",
+      }}
+    >
       {" "}
-      <Bar data={data}></Bar>
+      <Bar data={data} options={options}></Bar>
     </div>
   );
 };

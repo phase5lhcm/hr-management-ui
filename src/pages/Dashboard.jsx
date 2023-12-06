@@ -62,7 +62,7 @@ function Dashboard() {
   let prevMonth = months[monthIndexPrev];
 
   return (
-    <Container fluid style={{ backgroundColor: "#C4C5DA" }}>
+    <Container fluid style={{ backgroundColor: "#C4C5DA", height: "100vh" }}>
       <Row
         className="justify-content-center"
         style={{
@@ -72,7 +72,7 @@ function Dashboard() {
       >
         <Col md={{ span: 6, offset: 3 }}>
           {" "}
-          <h2>Dashboard</h2>
+          <h1 style={{ color: "#032A49" }}>Dashboard</h1>
         </Col>
       </Row>
       {/**First half of page */}
@@ -81,11 +81,12 @@ function Dashboard() {
           <Row className="d-flex justify-content-end">
             {/**card 1 */}
             <Col></Col>
-            <Col className="d-flex justify-content-end">
+            <Col>
               <Card
                 style={{
                   width: "14rem",
                   boxShadow: "-5px 0 5px #888888",
+                  backgroundColor: "#F4F5FF",
                 }}
               >
                 <Card.Body>
@@ -115,7 +116,13 @@ function Dashboard() {
             <Col md={1}></Col>
             <Col>
               {/**card 2 */}
-              <Card style={{ width: "14rem", boxShadow: "-5px 0 5px #888888" }}>
+              <Card
+                style={{
+                  width: "14rem",
+                  boxShadow: "-5px 0 5px #888888",
+                  backgroundColor: "#F4F5FF",
+                }}
+              >
                 <Card.Body>
                   <Card.Title className="d-flex justify-content-between align-items-center">
                     Absence Cost{" "}
@@ -144,9 +151,75 @@ function Dashboard() {
             <Row>
               <Col md={2}></Col>
               <Col>
-                <div style={{ paddingTop: "3rem" }}></div>
+                <div style={{ paddingTop: "2rem" }}></div>
                 <EmployeesByDeptBarChart />
+                <div style={{ paddingBottom: "2rem" }}></div>
               </Col>
+            </Row>
+            <Row className="d-flex justify-content-end">
+              <Col></Col>
+              <Card
+                style={{
+                  width: "14rem",
+                  boxShadow: "-5px 0 5px #888888",
+                  backgroundColor: "#F4F5FF",
+                }}
+              >
+                <Card.Body>
+                  <Card.Title className="d-flex justify-content-between align-items-center">
+                    Absence Rate{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faArrowsRotate}
+                        style={{ fontSize: ".8em" }}
+                      />
+                    </div>
+                  </Card.Title>
+                  <Card.Text className="text-center">
+                    {" "}
+                    <span style={{ fontSize: "2em", fontWeight: "bold" }}>
+                      29
+                    </span>{" "}
+                    <FontAwesomeIcon icon={faPercent} />
+                  </Card.Text>
+
+                  <p style={{ fontSize: ".8em" }}>
+                    <em>vs prev. month</em>{" "}
+                  </p>
+                </Card.Body>
+              </Card>
+              <Col md={1}></Col>
+              <Card
+                style={{
+                  width: "14rem",
+                  boxShadow: "-5px 0 5px #888888",
+                  backgroundColor: "#F4F5FF",
+                  paddingTop: "1rem",
+                }}
+              >
+                <Card.Body>
+                  <Card.Title className="d-flex justify-content-between align-items-center">
+                    Absence Rate{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faArrowsRotate}
+                        style={{ fontSize: ".8em" }}
+                      />
+                    </div>
+                  </Card.Title>
+                  <Card.Text className="text-center">
+                    {" "}
+                    <span style={{ fontSize: "2em", fontWeight: "bold" }}>
+                      29
+                    </span>{" "}
+                    <FontAwesomeIcon icon={faPercent} />
+                  </Card.Text>
+
+                  <p style={{ fontSize: ".8em" }}>
+                    <em>vs prev. month</em>{" "}
+                  </p>
+                </Card.Body>
+              </Card>
             </Row>
           </Row>
         </Col>
@@ -159,6 +232,8 @@ function Dashboard() {
                   width: "70%",
                   border: "1mm ridge grey",
                   padding: "1em",
+                  backgroundColor: "#E4E5F0",
+                  marginTop: "2rem",
                 }}
               >
                 <Row className="justify-content-end">
@@ -185,6 +260,7 @@ function Dashboard() {
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">Subheading</div>
@@ -197,6 +273,7 @@ function Dashboard() {
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">Subheading</div>
@@ -209,6 +286,7 @@ function Dashboard() {
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">Subheading</div>
@@ -221,6 +299,7 @@ function Dashboard() {
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">Subheading</div>
@@ -233,6 +312,46 @@ function Dashboard() {
                   <ListGroup.Item
                     as="li"
                     className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
+                  >
+                    <div className="ms-2 me-auto">
+                      <div className="fw-bold">Subheading</div>
+                      Cras justo odio
+                    </div>
+                    <Badge bg="primary" pill>
+                      <FontAwesomeIcon icon={faX} beat />
+                    </Badge>
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="li"
+                    className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
+                  >
+                    <div className="ms-2 me-auto">
+                      <div className="fw-bold">Subheading</div>
+                      Cras justo odio
+                    </div>
+                    <Badge bg="primary" pill>
+                      <FontAwesomeIcon icon={faX} beat />
+                    </Badge>
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="li"
+                    className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
+                  >
+                    <div className="ms-2 me-auto">
+                      <div className="fw-bold">Subheading</div>
+                      Cras justo odio
+                    </div>
+                    <Badge bg="primary" pill>
+                      <FontAwesomeIcon icon={faX} beat />
+                    </Badge>
+                  </ListGroup.Item>
+                  <ListGroup.Item
+                    as="li"
+                    className="d-flex justify-content-between align-items-start"
+                    style={{ backgroundColor: "#F4F5FF" }}
                   >
                     <div className="ms-2 me-auto">
                       <div className="fw-bold">Subheading</div>
