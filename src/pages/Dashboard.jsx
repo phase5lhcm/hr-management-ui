@@ -5,8 +5,13 @@ import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faX,
+  faArrowsRotate,
+  faPercent,
+} from "@fortawesome/free-solid-svg-icons";
 import EmployeesByDeptBarChart from "../components/EmployeesByDeptBarChart";
+import Button from "react-bootstrap/esm/Button";
 
 /* TODO - add a nav item to center of navbar & add menu item to dropdown arrow to allow user to login/logout
 & add onHover feature to bell for that says "Notifications"
@@ -42,15 +47,28 @@ function Dashboard() {
   const dayOfWeek = daysOfWeek[dayOfWeekIndex];
   const day = currentDate.getDate();
   const monthIndex = currentDate.getMonth();
+  const monthIndexPrev = currentDate.getMonth - 1;
   const year = currentDate.getFullYear();
 
   const today = `${dayOfWeek}, ${months[monthIndex]} ${day} ${year}`;
 
+  //Card data
+  let employeesAbsentPerCurrentMonth = 450;
+  let totalEmployeesAbsentInPrevMonth = 277;
+  let absenseRate = Math.round(
+    (employeesAbsentPerCurrentMonth / totalEmployeesAbsentInPrevMonth) * 100
+  );
+
+  let prevMonth = months[monthIndexPrev];
+
   return (
-    <Container fluid>
+    <Container fluid style={{ backgroundColor: "#C4C5DA" }}>
       <Row
         className="justify-content-center"
-        style={{ paddingBottom: "1rem", paddingTop: "1rem" }}
+        style={{
+          paddingBottom: "1rem",
+          paddingTop: "1rem",
+        }}
       >
         <Col md={{ span: 6, offset: 3 }}>
           {" "}
@@ -59,49 +77,88 @@ function Dashboard() {
       </Row>
       {/**First half of page */}
       <Row>
-        <Col md={2}></Col>
         <Col md={6}>
-          <Row>
+          <Row className="d-flex justify-content-end">
             {/**card 1 */}
-            <Col>
-              <Card style={{ width: "18rem" }}>
+            <Col></Col>
+            <Col className="d-flex justify-content-end">
+              <Card
+                style={{
+                  width: "14rem",
+                  boxShadow: "-5px 0 5px #888888",
+                }}
+              >
                 <Card.Body>
-                  <Card.Title>Absence Rate</Card.Title>
-                  <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  <Card.Title className="d-flex justify-content-between align-items-center">
+                    Absence Rate{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faArrowsRotate}
+                        style={{ fontSize: ".8em" }}
+                      />
+                    </div>
+                  </Card.Title>
+                  <Card.Text className="text-center">
+                    {" "}
+                    <span style={{ fontSize: "2em", fontWeight: "bold" }}>
+                      29
+                    </span>{" "}
+                    <FontAwesomeIcon icon={faPercent} />
                   </Card.Text>
+
+                  <p style={{ fontSize: ".8em" }}>
+                    <em>vs prev. month</em>{" "}
+                  </p>
                 </Card.Body>
               </Card>
             </Col>
+            <Col md={1}></Col>
             <Col>
               {/**card 2 */}
-              <Card style={{ width: "18rem" }}>
+              <Card style={{ width: "14rem", boxShadow: "-5px 0 5px #888888" }}>
                 <Card.Body>
-                  <Card.Title>Absence Cost</Card.Title>
+                  <Card.Title className="d-flex justify-content-between align-items-center">
+                    Absence Cost{" "}
+                    <div>
+                      <FontAwesomeIcon
+                        icon={faArrowsRotate}
+                        style={{ fontSize: ".8em" }}
+                      />
+                    </div>
+                  </Card.Title>
+                  <Card.Text className="text-center">
+                    {" "}
+                    <span
+                      style={{ fontSize: "2em", fontWeight: "bold" }}
+                    >{`${absenseRate}`}</span>{" "}
+                    <FontAwesomeIcon icon={faPercent} />
+                  </Card.Text>
                   <Card.Text>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    <p style={{ fontSize: ".8em" }}>
+                      <em>vs prev. month</em>{" "}
+                    </p>
                   </Card.Text>
                 </Card.Body>
               </Card>
             </Col>
             <Row>
+              <Col md={2}></Col>
               <Col>
+                <div style={{ paddingTop: "3rem" }}></div>
                 <EmployeesByDeptBarChart />
               </Col>
             </Row>
           </Row>
         </Col>
         {/** second half of page */}
-        <Col md={4}>
+        <Col md={5}>
           <Row>
-            <Col>
+            <Col className="d-flex justify-content-around">
               <Card
                 style={{
-                  width: "100%",
+                  width: "70%",
                   border: "1mm ridge grey",
-                  padding: "1.5em",
+                  padding: "1em",
                 }}
               >
                 <Row className="justify-content-end">

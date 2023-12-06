@@ -28,7 +28,7 @@ function Sidebar() {
   return (
     <>
       <Navbar className="bg-body-tertiary">
-        <Col sm={2} style={{ paddingLeft: "3rem", fontSize: "2.5em" }}>
+        <Col sm={2} style={{ paddingLeft: "3rem", fontSize: "1em" }}>
           <FontAwesomeIcon icon={faBars} onClick={handleShow} />
         </Col>
         <Form inline="true">
@@ -60,7 +60,7 @@ function Sidebar() {
           </Navbar.Text>
         </Navbar.Collapse>
       </Navbar>
-      =
+
       <Offcanvas show={show} onHide={handleClose} style={{ width: "8rem" }}>
         <Offcanvas.Body>
           <Container>
