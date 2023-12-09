@@ -18,6 +18,8 @@ import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
@@ -35,11 +37,31 @@ function Sidebar() {
             style={{ color: "#616E9A" }}
           />
         </Col>
+
+        <Navbar.Collapse
+          className="justify-content-start"
+          style={{ paddingRight: "1rem" }}
+        >
+          <Navbar.Text style={{ paddingRight: "1rem" }}>
+            <FontAwesomeIcon icon={faBell} style={{ color: "#616E9A" }} />
+          </Navbar.Text>
+          <Navbar.Text className="justify-content-between ">
+            <span style={{ color: "#032A49", paddingRight: ".5rem" }}>
+              Hello Mark Otto
+            </span>
+          </Navbar.Text>
+
+          <DropdownButton variant="tertiary">
+            <Dropdown.Item href="#/action-2">Login</Dropdown.Item>
+            <Dropdown.Item href="/register">Register</Dropdown.Item>
+          </DropdownButton>
+        </Navbar.Collapse>
+
         <Form inline="true">
           <Row>
             <Col xs="auto">
               <Form.Control
-                id="serachField"
+                id="searchField"
                 type="text"
                 placeholder="Search"
                 className=" mr-sm-2"
@@ -50,19 +72,6 @@ function Sidebar() {
             </Col>
           </Row>
         </Form>
-        <Navbar.Collapse
-          className="justify-content-end"
-          style={{ paddingRight: "1rem" }}
-        >
-          <Navbar.Text style={{ paddingRight: "1rem" }}>
-            <FontAwesomeIcon icon={faBell} style={{ color: "#616E9A" }} />
-          </Navbar.Text>
-          <Navbar.Text className="justify-content-between">
-            <span style={{ color: "#032A49" }}>
-              Hello Mark Otto <FontAwesomeIcon icon={faAngleDown} />
-            </span>
-          </Navbar.Text>
-        </Navbar.Collapse>
       </Navbar>
 
       <Offcanvas show={show} onHide={handleClose} style={{ width: "8rem" }}>
@@ -96,11 +105,8 @@ function Sidebar() {
                   className="flex-column justify-content-center align-content-center"
                 >
                   <Button style={{ marginTop: "1.5rem" }}>
-                    <FontAwesomeIcon
-                      icon={faArrowsSpin}
-                      style={{ fontSize: "2em" }}
-                    />
                     <span className="ms-1">Applications</span>
+                    <a href="/signup">SignUp</a>
                   </Button>
                 </Nav>
 

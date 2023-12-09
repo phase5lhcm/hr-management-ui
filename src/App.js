@@ -5,6 +5,7 @@ import EmployeeProfiles from "./pages/EmployeeProfiles";
 import Communications from "./pages/Communications";
 import Settings from "./pages/Settings";
 import Applications from "./pages/Applications";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/communications" element={<Communications />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/applications" element={<Applications />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </>
   );
