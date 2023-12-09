@@ -1,12 +1,13 @@
 import Container from "react-bootstrap/Container";
 import Register from "../components/RegisterComponent";
+import FormComponent from "../components/FormComponent";
 
-const RegisterPage = () => {
+const LoginPage = () => {
   return (
     <Container>
-      <Register />
+      <FormComponent isLoginPage={true} />
     </Container>
   );
 };
 
-export default RegisterPage;
+export default LoginPage;
