@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
-    <>
+    <div style={{ backgroundColor: "#4FC0C1", height: "100vh" }}>
       <Sidebar />
       <Routes>
         <Route path="/dashboard" element={<Dashboard />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="/applications" element={<Applications />} />
         <Route path="/register" element={<RegisterPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

@@ -11,6 +11,7 @@ import {
   faArrowsSpin,
   faEnvelopeOpenText,
   faGears,
+  faRoute,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
@@ -74,7 +75,11 @@ function Sidebar() {
         </Form>
       </Navbar>
 
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "8rem" }}>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        style={{ width: "8rem", backgroundColor: "#E5F6F6", color: "#000000" }}
+      >
         <Offcanvas.Body>
           <Container>
             <Row>
@@ -84,29 +89,43 @@ function Sidebar() {
                   className="flex-column justify-content-center align-content-center"
                   style={{}}
                 >
-                  <Button
-                    style={{
-                      width: "7.5rem",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      icon={faHouse}
-                      style={{ fontSize: "2em" }}
-                    />
-                    <span className="ms-1">Home</span>
-                  </Button>
+                  <a href="/dashboard" style={{ textDecoration: "none" }}>
+                    <Button
+                      style={{
+                        width: "7.5rem",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                      }}
+                      variant="tertiary"
+                    >
+                      <FontAwesomeIcon
+                        icon={faHouse}
+                        style={{ fontSize: "2em", color: "#000000" }}
+                      />
+                      <span className="ms-1">Home</span>
+                    </Button>
+                  </a>
                 </Nav>
 
                 <Nav
                   defaultActiveKey="/applications"
                   className="flex-column justify-content-center align-content-center"
                 >
-                  <Button style={{ marginTop: "1.5rem" }}>
+                  <Button
+                    style={{
+                      marginTop: "1.5rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                    variant="tertiary"
+                  >
+                    <FontAwesomeIcon
+                      icon={faRoute}
+                      style={{ fontSize: "2em", color: "#000000" }}
+                    />
                     <span className="ms-1">Applications</span>
-                    <a href="/signup">SignUp</a>
                   </Button>
                 </Nav>
 
@@ -114,10 +133,13 @@ function Sidebar() {
                   defaultActiveKey="/employee-profiles"
                   className="flex-column justify-content-center align-content-center"
                 >
-                  <Button style={{ marginTop: "1.5rem", width: "7.5rem" }}>
+                  <Button
+                    style={{ marginTop: "1.5rem", width: "7.5rem" }}
+                    variant="tertiary"
+                  >
                     <FontAwesomeIcon
                       icon={faPerson}
-                      style={{ fontSize: "2em" }}
+                      style={{ fontSize: "2em", color: "#000000" }}
                     />
                     <span>Employees</span>
                   </Button>
@@ -132,11 +154,13 @@ function Sidebar() {
                       width: "7.5rem",
                       alignItems: "center",
                     }}
+                    variant="tertiary"
                   >
                     <FontAwesomeIcon
                       icon={faEnvelopeOpenText}
                       style={{
                         fontSize: "2em",
+                        color: "#000000",
                       }}
                     />
                     <span>Messages</span>
@@ -151,10 +175,11 @@ function Sidebar() {
                       marginTop: "1.5rem",
                       width: "7.5rem",
                     }}
+                    variant="tertiary"
                   >
                     <FontAwesomeIcon
                       icon={faGears}
-                      style={{ fontSize: "2em" }}
+                      style={{ fontSize: "2em", color: "#000000" }}
                     />
                     <span>Settings</span>
                   </Button>
